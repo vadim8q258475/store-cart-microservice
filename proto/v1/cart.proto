@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package cart;
+
+option go_package = ".;cartpbv1";
+
+
+service CartService{
+    rpc Create(Create.Request)returns(Create.Response);
+    rpc Delete(Delete.Request)returns(Delete.Response);
+    rpc Add(Add.Request)returns(Add.Response);
+    rpc Remove(Remove.Request)returns(Remove.Response);
+    rpc List(List.Request)returns(List.Response);
+    rpc Get(Get.Request)returns(Get.Response);
+}
+
+message Create{
+    message Request{
+        uint32 user_id = 1;
+    }
+    message Response{
+        uint32 cart_id = 1;
+    }
+}
+
+message Delete{
+    message Request{
+        uint32 cart_id = 1;
+    }
+    message Response{
+        bool success = 1;
+    }
+}
+
+message Add{
+    message Request{
+        uint32 cart_id = 1;
+        uint32 product_id = 2;
+        uint32 qty = 3;
+    }
+    message Response{
+        uint32 cart_id = 1;
+    }
+}
+
+message Remove{
+    message Request{
+        uint32 cart_id = 1;
+        uint32 product_id = 2;
+        uint32 qty = 3;
+    }
+    message Response{
+        uint32 cart_id = 1;
+    }
+}
+
+message Category{
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message Product{
+    uint32 id = 1;
+    string name = 2;
+    string description = 3;
+    int32 qty = 4;
+    float price = 5;
+    Category category = 6;
+}
+
+message CartProduct{
+    uint32 id = 1;
+    Product product = 2;
+    uint32 qty = 3;
+}
+
+message Cart{
+    uint32 id = 1;
+    uint32 user_id = 2;
+    repeated CartProduct products = 3;
+    uint32 total = 4;
+}
+
+message List{
+    message Request{
+    }
+    message Response{
+        repeated Cart carts = 1;
+    }
+}
+
+message Get{
+    message Request{
+        uint32 cart_id = 1; 
+    }
+    message Response{
+        Cart cart = 1;
+    }
+}
