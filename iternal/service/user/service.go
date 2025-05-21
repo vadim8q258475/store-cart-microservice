@@ -2,7 +2,6 @@ package service
 
 import (
 	"context"
-	"strconv"
 
 	userpb "github.com/vadim8q258475/store-user-microservice/gen/v1"
 )
@@ -22,10 +21,10 @@ func NewUserService(client userpb.UserServiceClient) UserService {
 }
 
 func (s *userService) Get(ctx context.Context, userId uint32) (*userpb.User, error) {
-	request := &userpb.GetByID_Request{Id: strconv.Itoa(int(userId))}
+	request := &userpb.GetByID_Request{Id: userId}
 	response, err := s.client.GetByID(ctx, request)
 	if err != nil {
 		return nil, err
 	}
-	return (*userpb.User)(response), nil
+	return response.User, nil
 }
