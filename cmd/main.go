@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 
+	amqp "github.com/rabbitmq/amqp091-go"
 	"github.com/vadim8q258475/store-cart-microservice/app"
 	"github.com/vadim8q258475/store-cart-microservice/config"
+	"github.com/vadim8q258475/store-cart-microservice/consumer"
 	grpcService "github.com/vadim8q258475/store-cart-microservice/iternal/grpc"
 	"github.com/vadim8q258475/store-cart-microservice/iternal/interceptor"
 	"github.com/vadim8q258475/store-cart-microservice/iternal/repo"
@@ -69,6 +71,25 @@ func main() {
 	userService := userService.NewUserService(userClient)
 	service := service.NewCartService(productService, userService, cartRepo, cartProductRepo)
 
+	// rabbitmq consumer
+	conn, err := amqp.Dial(fmt.Sprintf("amqp://%s:%s@%s:%s/",
+		cfg.RabbitMQUser,
+		cfg.RabbitMQPassword,
+		cfg.RabbitMQHost,
+		cfg.RabbitMQPort,
+	))
+
+	if err != nil {
+		panic(err)
+	}
+
+	ch, err := conn.Channel()
+
+	if err != nil {
+		panic(err)
+	}
+	consumer := consumer.NewRabbitMQConsumer(ch, service, cfg, logger)
+
 	// grpc service
 	grpcService := grpcService.NewGrpcService(service)
 
@@ -80,7 +101,7 @@ func main() {
 	)
 
 	// app
-	app := app.NewApp(grpcService, server, logger, cfg)
+	app := app.NewApp(grpcService, server, logger, cfg, consumer)
 
 	if err = app.Run(); err != nil {
 		panic(err)

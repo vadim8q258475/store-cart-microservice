@@ -7,13 +7,14 @@ require (
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/lib/pq v1.10.9
 	github.com/vadim8q258475/store-product-microservice v0.0.4
-	github.com/vadim8q258475/store-user-microservice v0.0.5
+	github.com/vadim8q258475/store-user-microservice v0.0.6
 	go.uber.org/zap v1.27.0
 	google.golang.org/grpc v1.72.1
 	google.golang.org/protobuf v1.36.6
 )
 
 require (
+	github.com/rabbitmq/amqp091-go v1.10.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/net v0.35.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
