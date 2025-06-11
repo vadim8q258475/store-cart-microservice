@@ -509,6 +509,42 @@ func (*Get) Descriptor() ([]byte, []int) {
 	return file_cart_proto_rawDescGZIP(), []int{9}
 }
 
+type GetByUserId struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetByUserId) Reset() {
+	*x = GetByUserId{}
+	mi := &file_cart_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetByUserId) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByUserId) ProtoMessage() {}
+
+func (x *GetByUserId) ProtoReflect() protoreflect.Message {
+	mi := &file_cart_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByUserId.ProtoReflect.Descriptor instead.
+func (*GetByUserId) Descriptor() ([]byte, []int) {
+	return file_cart_proto_rawDescGZIP(), []int{10}
+}
+
 type Create_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
@@ -518,7 +554,7 @@ type Create_Request struct {
 
 func (x *Create_Request) Reset() {
 	*x = Create_Request{}
-	mi := &file_cart_proto_msgTypes[10]
+	mi := &file_cart_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -530,7 +566,7 @@ func (x *Create_Request) String() string {
 func (*Create_Request) ProtoMessage() {}
 
 func (x *Create_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[10]
+	mi := &file_cart_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -562,7 +598,7 @@ type Create_Response struct {
 
 func (x *Create_Response) Reset() {
 	*x = Create_Response{}
-	mi := &file_cart_proto_msgTypes[11]
+	mi := &file_cart_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -574,7 +610,7 @@ func (x *Create_Response) String() string {
 func (*Create_Response) ProtoMessage() {}
 
 func (x *Create_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[11]
+	mi := &file_cart_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -606,7 +642,7 @@ type Delete_Request struct {
 
 func (x *Delete_Request) Reset() {
 	*x = Delete_Request{}
-	mi := &file_cart_proto_msgTypes[12]
+	mi := &file_cart_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -618,7 +654,7 @@ func (x *Delete_Request) String() string {
 func (*Delete_Request) ProtoMessage() {}
 
 func (x *Delete_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[12]
+	mi := &file_cart_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -650,7 +686,7 @@ type Delete_Response struct {
 
 func (x *Delete_Response) Reset() {
 	*x = Delete_Response{}
-	mi := &file_cart_proto_msgTypes[13]
+	mi := &file_cart_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -662,7 +698,7 @@ func (x *Delete_Response) String() string {
 func (*Delete_Response) ProtoMessage() {}
 
 func (x *Delete_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[13]
+	mi := &file_cart_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -696,7 +732,7 @@ type Add_Request struct {
 
 func (x *Add_Request) Reset() {
 	*x = Add_Request{}
-	mi := &file_cart_proto_msgTypes[14]
+	mi := &file_cart_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -708,7 +744,7 @@ func (x *Add_Request) String() string {
 func (*Add_Request) ProtoMessage() {}
 
 func (x *Add_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[14]
+	mi := &file_cart_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -754,7 +790,7 @@ type Add_Response struct {
 
 func (x *Add_Response) Reset() {
 	*x = Add_Response{}
-	mi := &file_cart_proto_msgTypes[15]
+	mi := &file_cart_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -766,7 +802,7 @@ func (x *Add_Response) String() string {
 func (*Add_Response) ProtoMessage() {}
 
 func (x *Add_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[15]
+	mi := &file_cart_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -800,7 +836,7 @@ type Remove_Request struct {
 
 func (x *Remove_Request) Reset() {
 	*x = Remove_Request{}
-	mi := &file_cart_proto_msgTypes[16]
+	mi := &file_cart_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -812,7 +848,7 @@ func (x *Remove_Request) String() string {
 func (*Remove_Request) ProtoMessage() {}
 
 func (x *Remove_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[16]
+	mi := &file_cart_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -858,7 +894,7 @@ type Remove_Response struct {
 
 func (x *Remove_Response) Reset() {
 	*x = Remove_Response{}
-	mi := &file_cart_proto_msgTypes[17]
+	mi := &file_cart_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -870,7 +906,7 @@ func (x *Remove_Response) String() string {
 func (*Remove_Response) ProtoMessage() {}
 
 func (x *Remove_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[17]
+	mi := &file_cart_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -901,7 +937,7 @@ type List_Request struct {
 
 func (x *List_Request) Reset() {
 	*x = List_Request{}
-	mi := &file_cart_proto_msgTypes[18]
+	mi := &file_cart_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -913,7 +949,7 @@ func (x *List_Request) String() string {
 func (*List_Request) ProtoMessage() {}
 
 func (x *List_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[18]
+	mi := &file_cart_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -938,7 +974,7 @@ type List_Response struct {
 
 func (x *List_Response) Reset() {
 	*x = List_Response{}
-	mi := &file_cart_proto_msgTypes[19]
+	mi := &file_cart_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -950,7 +986,7 @@ func (x *List_Response) String() string {
 func (*List_Response) ProtoMessage() {}
 
 func (x *List_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[19]
+	mi := &file_cart_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -982,7 +1018,7 @@ type Get_Request struct {
 
 func (x *Get_Request) Reset() {
 	*x = Get_Request{}
-	mi := &file_cart_proto_msgTypes[20]
+	mi := &file_cart_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -994,7 +1030,7 @@ func (x *Get_Request) String() string {
 func (*Get_Request) ProtoMessage() {}
 
 func (x *Get_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[20]
+	mi := &file_cart_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1062,7 @@ type Get_Response struct {
 
 func (x *Get_Response) Reset() {
 	*x = Get_Response{}
-	mi := &file_cart_proto_msgTypes[21]
+	mi := &file_cart_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1038,7 +1074,7 @@ func (x *Get_Response) String() string {
 func (*Get_Response) ProtoMessage() {}
 
 func (x *Get_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cart_proto_msgTypes[21]
+	mi := &file_cart_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1055,6 +1091,94 @@ func (*Get_Response) Descriptor() ([]byte, []int) {
 }
 
 func (x *Get_Response) GetCart() *Cart {
+	if x != nil {
+		return x.Cart
+	}
+	return nil
+}
+
+type GetByUserId_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        uint32                 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetByUserId_Request) Reset() {
+	*x = GetByUserId_Request{}
+	mi := &file_cart_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetByUserId_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByUserId_Request) ProtoMessage() {}
+
+func (x *GetByUserId_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_cart_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByUserId_Request.ProtoReflect.Descriptor instead.
+func (*GetByUserId_Request) Descriptor() ([]byte, []int) {
+	return file_cart_proto_rawDescGZIP(), []int{10, 0}
+}
+
+func (x *GetByUserId_Request) GetUserId() uint32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetByUserId_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Cart          *Cart                  `protobuf:"bytes,1,opt,name=cart,proto3" json:"cart,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetByUserId_Response) Reset() {
+	*x = GetByUserId_Response{}
+	mi := &file_cart_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetByUserId_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByUserId_Response) ProtoMessage() {}
+
+func (x *GetByUserId_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_cart_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByUserId_Response.ProtoReflect.Descriptor instead.
+func (*GetByUserId_Response) Descriptor() ([]byte, []int) {
+	return file_cart_proto_rawDescGZIP(), []int{10, 1}
+}
+
+func (x *GetByUserId_Response) GetCart() *Cart {
 	if x != nil {
 		return x.Cart
 	}
@@ -1123,14 +1247,21 @@ const file_cart_proto_rawDesc = "" +
 	"\acart_id\x18\x01 \x01(\rR\x06cartId\x1a*\n" +
 	"\bResponse\x12\x1e\n" +
 	"\x04cart\x18\x01 \x01(\v2\n" +
-	".cart.CartR\x04cart2\xbf\x02\n" +
+	".cart.CartR\x04cart\"]\n" +
+	"\vGetByUserId\x1a\"\n" +
+	"\aRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\rR\x06userId\x1a*\n" +
+	"\bResponse\x12\x1e\n" +
+	"\x04cart\x18\x01 \x01(\v2\n" +
+	".cart.CartR\x04cart2\x85\x03\n" +
 	"\vCartService\x125\n" +
 	"\x06Create\x12\x14.cart.Create.Request\x1a\x15.cart.Create.Response\x125\n" +
 	"\x06Delete\x12\x14.cart.Delete.Request\x1a\x15.cart.Delete.Response\x12,\n" +
 	"\x03Add\x12\x11.cart.Add.Request\x1a\x12.cart.Add.Response\x125\n" +
 	"\x06Remove\x12\x14.cart.Remove.Request\x1a\x15.cart.Remove.Response\x12/\n" +
 	"\x04List\x12\x12.cart.List.Request\x1a\x13.cart.List.Response\x12,\n" +
-	"\x03Get\x12\x11.cart.Get.Request\x1a\x12.cart.Get.ResponseB\fZ\n" +
+	"\x03Get\x12\x11.cart.Get.Request\x1a\x12.cart.Get.Response\x12D\n" +
+	"\vGetByUserId\x12\x19.cart.GetByUserId.Request\x1a\x1a.cart.GetByUserId.ResponseB\fZ\n" +
 	".;cartpbv1b\x06proto3"
 
 var (
@@ -1145,30 +1276,33 @@ func file_cart_proto_rawDescGZIP() []byte {
 	return file_cart_proto_rawDescData
 }
 
-var file_cart_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_cart_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_cart_proto_goTypes = []any{
-	(*Create)(nil),          // 0: cart.Create
-	(*Delete)(nil),          // 1: cart.Delete
-	(*Add)(nil),             // 2: cart.Add
-	(*Remove)(nil),          // 3: cart.Remove
-	(*Category)(nil),        // 4: cart.Category
-	(*Product)(nil),         // 5: cart.Product
-	(*CartProduct)(nil),     // 6: cart.CartProduct
-	(*Cart)(nil),            // 7: cart.Cart
-	(*List)(nil),            // 8: cart.List
-	(*Get)(nil),             // 9: cart.Get
-	(*Create_Request)(nil),  // 10: cart.Create.Request
-	(*Create_Response)(nil), // 11: cart.Create.Response
-	(*Delete_Request)(nil),  // 12: cart.Delete.Request
-	(*Delete_Response)(nil), // 13: cart.Delete.Response
-	(*Add_Request)(nil),     // 14: cart.Add.Request
-	(*Add_Response)(nil),    // 15: cart.Add.Response
-	(*Remove_Request)(nil),  // 16: cart.Remove.Request
-	(*Remove_Response)(nil), // 17: cart.Remove.Response
-	(*List_Request)(nil),    // 18: cart.List.Request
-	(*List_Response)(nil),   // 19: cart.List.Response
-	(*Get_Request)(nil),     // 20: cart.Get.Request
-	(*Get_Response)(nil),    // 21: cart.Get.Response
+	(*Create)(nil),               // 0: cart.Create
+	(*Delete)(nil),               // 1: cart.Delete
+	(*Add)(nil),                  // 2: cart.Add
+	(*Remove)(nil),               // 3: cart.Remove
+	(*Category)(nil),             // 4: cart.Category
+	(*Product)(nil),              // 5: cart.Product
+	(*CartProduct)(nil),          // 6: cart.CartProduct
+	(*Cart)(nil),                 // 7: cart.Cart
+	(*List)(nil),                 // 8: cart.List
+	(*Get)(nil),                  // 9: cart.Get
+	(*GetByUserId)(nil),          // 10: cart.GetByUserId
+	(*Create_Request)(nil),       // 11: cart.Create.Request
+	(*Create_Response)(nil),      // 12: cart.Create.Response
+	(*Delete_Request)(nil),       // 13: cart.Delete.Request
+	(*Delete_Response)(nil),      // 14: cart.Delete.Response
+	(*Add_Request)(nil),          // 15: cart.Add.Request
+	(*Add_Response)(nil),         // 16: cart.Add.Response
+	(*Remove_Request)(nil),       // 17: cart.Remove.Request
+	(*Remove_Response)(nil),      // 18: cart.Remove.Response
+	(*List_Request)(nil),         // 19: cart.List.Request
+	(*List_Response)(nil),        // 20: cart.List.Response
+	(*Get_Request)(nil),          // 21: cart.Get.Request
+	(*Get_Response)(nil),         // 22: cart.Get.Response
+	(*GetByUserId_Request)(nil),  // 23: cart.GetByUserId.Request
+	(*GetByUserId_Response)(nil), // 24: cart.GetByUserId.Response
 }
 var file_cart_proto_depIdxs = []int32{
 	4,  // 0: cart.Product.category:type_name -> cart.Category
@@ -1176,23 +1310,26 @@ var file_cart_proto_depIdxs = []int32{
 	6,  // 2: cart.Cart.products:type_name -> cart.CartProduct
 	7,  // 3: cart.List.Response.carts:type_name -> cart.Cart
 	7,  // 4: cart.Get.Response.cart:type_name -> cart.Cart
-	10, // 5: cart.CartService.Create:input_type -> cart.Create.Request
-	12, // 6: cart.CartService.Delete:input_type -> cart.Delete.Request
-	14, // 7: cart.CartService.Add:input_type -> cart.Add.Request
-	16, // 8: cart.CartService.Remove:input_type -> cart.Remove.Request
-	18, // 9: cart.CartService.List:input_type -> cart.List.Request
-	20, // 10: cart.CartService.Get:input_type -> cart.Get.Request
-	11, // 11: cart.CartService.Create:output_type -> cart.Create.Response
-	13, // 12: cart.CartService.Delete:output_type -> cart.Delete.Response
-	15, // 13: cart.CartService.Add:output_type -> cart.Add.Response
-	17, // 14: cart.CartService.Remove:output_type -> cart.Remove.Response
-	19, // 15: cart.CartService.List:output_type -> cart.List.Response
-	21, // 16: cart.CartService.Get:output_type -> cart.Get.Response
-	11, // [11:17] is the sub-list for method output_type
-	5,  // [5:11] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	7,  // 5: cart.GetByUserId.Response.cart:type_name -> cart.Cart
+	11, // 6: cart.CartService.Create:input_type -> cart.Create.Request
+	13, // 7: cart.CartService.Delete:input_type -> cart.Delete.Request
+	15, // 8: cart.CartService.Add:input_type -> cart.Add.Request
+	17, // 9: cart.CartService.Remove:input_type -> cart.Remove.Request
+	19, // 10: cart.CartService.List:input_type -> cart.List.Request
+	21, // 11: cart.CartService.Get:input_type -> cart.Get.Request
+	23, // 12: cart.CartService.GetByUserId:input_type -> cart.GetByUserId.Request
+	12, // 13: cart.CartService.Create:output_type -> cart.Create.Response
+	14, // 14: cart.CartService.Delete:output_type -> cart.Delete.Response
+	16, // 15: cart.CartService.Add:output_type -> cart.Add.Response
+	18, // 16: cart.CartService.Remove:output_type -> cart.Remove.Response
+	20, // 17: cart.CartService.List:output_type -> cart.List.Response
+	22, // 18: cart.CartService.Get:output_type -> cart.Get.Response
+	24, // 19: cart.CartService.GetByUserId:output_type -> cart.GetByUserId.Response
+	13, // [13:20] is the sub-list for method output_type
+	6,  // [6:13] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_cart_proto_init() }
@@ -1206,7 +1343,7 @@ func file_cart_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cart_proto_rawDesc), len(file_cart_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   25,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -16,6 +16,7 @@ type CartService interface {
 	Create(ctx context.Context, userId uint32) (uint32, error)
 	Delete(ctx context.Context, cartId uint32) error
 	Get(ctx context.Context, cartID uint32) (*gen.Cart, error)
+	GetByUserId(ctx context.Context, userId uint32) (*gen.Cart, error)
 	List(ctx context.Context) ([]*gen.Cart, error)
 	Add(ctx context.Context, cartId, productId, qty uint32) error
 	Remove(ctx context.Context, cartId, productId, qty uint32) error
@@ -86,12 +87,27 @@ func (s *cartService) GetCartProducts(ctx context.Context, cartId uint32) ([]*ge
 }
 func (s *cartService) Get(ctx context.Context, cartID uint32) (*gen.Cart, error) {
 	cartModel, err := s.cartRepo.Get(ctx, cartID)
-	fmt.Println(err)
 	if err != nil {
 		return nil, err
 	}
 	cartProducts, total, err := s.GetCartProducts(ctx, cartID)
-	fmt.Println(err)
+	if err != nil {
+		return nil, err
+	}
+	cart := &gen.Cart{
+		Id:       cartModel.Id,
+		UserId:   cartModel.UserId,
+		Products: cartProducts,
+		Total:    total,
+	}
+	return cart, err
+}
+func (s *cartService) GetByUserId(ctx context.Context, userID uint32) (*gen.Cart, error) {
+	cartModel, err := s.cartRepo.GetByUserId(ctx, userID)
+	if err != nil {
+		return nil, err
+	}
+	cartProducts, total, err := s.GetCartProducts(ctx, cartModel.Id)
 	if err != nil {
 		return nil, err
 	}

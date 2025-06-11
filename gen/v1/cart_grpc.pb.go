@@ -19,12 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CartService_Create_FullMethodName = "/cart.CartService/Create"
-	CartService_Delete_FullMethodName = "/cart.CartService/Delete"
-	CartService_Add_FullMethodName    = "/cart.CartService/Add"
-	CartService_Remove_FullMethodName = "/cart.CartService/Remove"
-	CartService_List_FullMethodName   = "/cart.CartService/List"
-	CartService_Get_FullMethodName    = "/cart.CartService/Get"
+	CartService_Create_FullMethodName      = "/cart.CartService/Create"
+	CartService_Delete_FullMethodName      = "/cart.CartService/Delete"
+	CartService_Add_FullMethodName         = "/cart.CartService/Add"
+	CartService_Remove_FullMethodName      = "/cart.CartService/Remove"
+	CartService_List_FullMethodName        = "/cart.CartService/List"
+	CartService_Get_FullMethodName         = "/cart.CartService/Get"
+	CartService_GetByUserId_FullMethodName = "/cart.CartService/GetByUserId"
 )
 
 // CartServiceClient is the client API for CartService service.
@@ -37,6 +38,7 @@ type CartServiceClient interface {
 	Remove(ctx context.Context, in *Remove_Request, opts ...grpc.CallOption) (*Remove_Response, error)
 	List(ctx context.Context, in *List_Request, opts ...grpc.CallOption) (*List_Response, error)
 	Get(ctx context.Context, in *Get_Request, opts ...grpc.CallOption) (*Get_Response, error)
+	GetByUserId(ctx context.Context, in *GetByUserId_Request, opts ...grpc.CallOption) (*GetByUserId_Response, error)
 }
 
 type cartServiceClient struct {
@@ -107,6 +109,16 @@ func (c *cartServiceClient) Get(ctx context.Context, in *Get_Request, opts ...gr
 	return out, nil
 }
 
+func (c *cartServiceClient) GetByUserId(ctx context.Context, in *GetByUserId_Request, opts ...grpc.CallOption) (*GetByUserId_Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetByUserId_Response)
+	err := c.cc.Invoke(ctx, CartService_GetByUserId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CartServiceServer is the server API for CartService service.
 // All implementations must embed UnimplementedCartServiceServer
 // for forward compatibility.
@@ -117,6 +129,7 @@ type CartServiceServer interface {
 	Remove(context.Context, *Remove_Request) (*Remove_Response, error)
 	List(context.Context, *List_Request) (*List_Response, error)
 	Get(context.Context, *Get_Request) (*Get_Response, error)
+	GetByUserId(context.Context, *GetByUserId_Request) (*GetByUserId_Response, error)
 	mustEmbedUnimplementedCartServiceServer()
 }
 
@@ -144,6 +157,9 @@ func (UnimplementedCartServiceServer) List(context.Context, *List_Request) (*Lis
 }
 func (UnimplementedCartServiceServer) Get(context.Context, *Get_Request) (*Get_Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedCartServiceServer) GetByUserId(context.Context, *GetByUserId_Request) (*GetByUserId_Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetByUserId not implemented")
 }
 func (UnimplementedCartServiceServer) mustEmbedUnimplementedCartServiceServer() {}
 func (UnimplementedCartServiceServer) testEmbeddedByValue()                     {}
@@ -274,6 +290,24 @@ func _CartService_Get_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CartService_GetByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByUserId_Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CartServiceServer).GetByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CartService_GetByUserId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CartServiceServer).GetByUserId(ctx, req.(*GetByUserId_Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CartService_ServiceDesc is the grpc.ServiceDesc for CartService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -304,6 +338,10 @@ var CartService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _CartService_Get_Handler,
+		},
+		{
+			MethodName: "GetByUserId",
+			Handler:    _CartService_GetByUserId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

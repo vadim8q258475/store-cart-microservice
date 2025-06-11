@@ -15,6 +15,7 @@ type CartService interface {
 	Create(ctx context.Context, userId uint32) (uint32, error)
 	Delete(ctx context.Context, cartId uint32) error
 	Get(ctx context.Context, cartID uint32) (*gen.Cart, error)
+	GetByUserId(ctx context.Context, userId uint32) (*gen.Cart, error)
 	List(ctx context.Context) ([]*gen.Cart, error)
 	Add(ctx context.Context, cartId, productId, qty uint32) error
 	Remove(ctx context.Context, cartId, productId, qty uint32) error
@@ -61,6 +62,13 @@ func (g *GrpcService) Get(ctx context.Context, request *gen.Get_Request) (*gen.G
 		return nil, err
 	}
 	return &gen.Get_Response{Cart: cart}, nil
+}
+func (g *GrpcService) GetByUserId(ctx context.Context, request *gen.GetByUserId_Request) (*gen.GetByUserId_Response, error) {
+	cart, err := g.cartService.GetByUserId(ctx, request.UserId)
+	if err != nil {
+		return nil, err
+	}
+	return &gen.GetByUserId_Response{Cart: cart}, nil
 }
 func (g *GrpcService) List(ctx context.Context, request *gen.List_Request) (*gen.List_Response, error) {
 	carts, err := g.cartService.List(ctx)

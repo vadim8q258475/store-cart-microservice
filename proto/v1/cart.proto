@@ -12,6 +12,7 @@ service CartService{
     rpc Remove(Remove.Request)returns(Remove.Response);
     rpc List(List.Request)returns(List.Response);
     rpc Get(Get.Request)returns(Get.Response);
+    rpc GetByUserId(GetByUserId.Request)returns(GetByUserId.Response);
 }
 
 message Create{
@@ -93,6 +94,15 @@ message List{
 message Get{
     message Request{
         uint32 cart_id = 1; 
+    }
+    message Response{
+        Cart cart = 1;
+    }
+}
+
+message GetByUserId{
+    message Request{
+        uint32 user_id = 1; 
     }
     message Response{
         Cart cart = 1;

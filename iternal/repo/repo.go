@@ -13,6 +13,7 @@ type CartRepo interface {
 	Create(ctx context.Context, cart Cart) (uint32, error)
 	Delete(ctx context.Context, id uint32) error
 	Get(ctx context.Context, id uint32) (Cart, error)
+	GetByUserId(ctx context.Context, userId uint32) (Cart, error)
 	List(ctx context.Context) ([]Cart, error)
 }
 
@@ -52,6 +53,11 @@ func (r *cartRepo) Delete(ctx context.Context, id uint32) error {
 func (r *cartRepo) Get(ctx context.Context, id uint32) (Cart, error) {
 	var cart Cart
 	err := r.db.GetContext(ctx, &cart, `SELECT id, user_id FROM carts WHERE id = $1`, id)
+	return cart, err
+}
+func (r *cartRepo) GetByUserId(ctx context.Context, userId uint32) (Cart, error) {
+	var cart Cart
+	err := r.db.GetContext(ctx, &cart, `SELECT id, user_id FROM carts WHERE user_id = $1`, userId)
 	return cart, err
 }
 func (r *cartRepo) List(ctx context.Context) ([]Cart, error) {
